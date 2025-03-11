@@ -33,9 +33,9 @@ namespace Relação1N.Data.Mapping
                 .HasMaxLength(255);
 
             builder.Property(x => x.CreateAt)
-                .IsRequired()
-                .HasColumnType("SMALLDATETIME")
-                .HasDefaultValue(DateTime.Now.ToUniversalTime());
+     .IsRequired()
+     .HasColumnType("SMALLDATETIME")
+     .HasDefaultValueSql("GETUTCDATE()");
 
             //Indice
             builder.HasIndex(x => x.Email, "IX_User_Email").IsUnique();

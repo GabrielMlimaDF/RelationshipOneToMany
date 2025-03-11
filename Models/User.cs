@@ -1,4 +1,6 @@
-﻿namespace Relação1N.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Relação1N.Models
 {
     public class User
     {
@@ -11,6 +13,6 @@
         //relação
         public int RoleId { get; set; }
 
-        public Role Role { get; set; } = null!;
+        public Role? Role { get; set; }
     }
 }
