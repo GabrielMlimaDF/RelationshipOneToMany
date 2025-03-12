@@ -20,7 +20,17 @@ namespace Relação1N.Controllers
         {
             try
             {
-                var users = await _contextApp.Users.ToListAsync();
+                var users = await _contextApp.Users
+            .Include(x => x.Role)  // Apenas incluindo a Role
+            .AsNoTracking()
+            .Select(user => new
+            {
+                user.Id,
+                user.Name,
+                RoleName = user.Role.Name // Pegando apenas o nome da Role
+            })
+            .ToListAsync();
+
                 return Ok(users);
             }
             catch (Exception)

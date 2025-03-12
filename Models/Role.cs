@@ -1,4 +1,6 @@
-﻿namespace Relação1N.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Relação1N.Models
 {
     public class Role
     {
@@ -7,6 +9,7 @@
         public string Description { get; set; } = string.Empty;
 
         //relação
+        [JsonIgnore]
         public List<User> Users { get; set; } = new List<User>();
     }
 }

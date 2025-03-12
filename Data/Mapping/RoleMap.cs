@@ -23,12 +23,6 @@ namespace Relação1N.Data.Mapping
 
             //Indice
             builder.HasIndex(x => x.Name, "IX_Role_Name").IsUnique();
-
-            //Relação
-            builder.HasMany(x => x.Users)
-                .WithOne(x => x.Role)
-                .HasForeignKey(x => x.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

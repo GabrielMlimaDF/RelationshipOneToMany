@@ -13,6 +13,6 @@ namespace Relação1N.Models
         //relação
         public int RoleId { get; set; }
 
-        public Role? Role { get; set; }
+        public Role Role { get; set; } = null!;
     }
 }
